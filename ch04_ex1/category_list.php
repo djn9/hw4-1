@@ -8,7 +8,9 @@ $statement = $db->prepare($query);
 $statement->execute();
 $categories = $statement->fetchAll();
 $statement->closeCursor();
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -23,14 +25,21 @@ $statement->closeCursor();
 <header><h1>Product Manager</h1></header>
 <main>
     <h1>Category List</h1>
+    
     <table>
         <tr>
             <th>Name</th>
             <th>&nbsp;</th>
-        </tr>
         
-        <!-- add code for the rest of the table here -->
-    
+    <ul>    
+        <?php foreach ($categories as $category) : ?>	
+	<li><a href=".?category_id=<?php echo $category['categoryID'];?>">
+		<?php echo $category['categoryName']; ?>
+	    </a>
+	</li>
+	<?php endforeach; ?>
+    </ul>
+    </tr>
     </table>
 
     <h2>Add Category</h2>

@@ -1,6 +1,6 @@
 <?php
 require_once('database.php');
-
+//midterm commit
 // Get category ID
 if (!isset($category_id)) {
     $category_id = filter_input(INPUT_GET, 'category_id', 
